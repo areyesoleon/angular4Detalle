@@ -1,0 +1,15 @@
+<div class="row">
+  <div *ngFor="let animal of animals" class="col-sm-6">
+    <div class="card">
+      <div class="d-flex justify-content-center">
+        <img class="card-body" width="50%" height="50%" src="{{url+'get-image-animal/'+animal.image}}" alt="{{animal.name}}">
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">
+          <a [routerLink]="['/animal',animal._id]">{{animal.name}}</a>
+        </h4>
+        <p class="card-text">{{animal.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<button class="btn btn-success" [@marcar]="state" (click)="state='active'">Animaciones</button>
+
+<hr>
+<p>
+  {{titulo}}
+</p>
+<ul>
+  <li>Camisa</li>
+  <li>Gorra</li>
+</ul>
+<hr>
+Nombre del parque:
+<input type="text" [(ngModel)]="nombreDelPaque" (keyup)="mostrarNombre()">
+resultado: {{nombreDelPaque}}
+<br>
+hijo
+<app-parque [nombre]="nombreDelPaque" [metrosCuadrados]="8" (pasameLosDatos)="verDatosParque($event)"></app-parque>
+<hr>
+<div *ngIf="miParque">
+  <h4>Datos de mi padre desde el hijo</h4>
+  <ol>
+    <li>{{miParque.nombre}}</li>
+    <li>{{miParque.metros}}</li>
+    <li>{{miParque.vegetacion}}</li>
+    <li>{{miParque.abierto}}</li>
+  </ol>
+</div>
+<app-simple-tiny
+[elementId]="'descripcionTienda'"
+(onEditorKeyup)="textoRichEditor($event)"
+>
+</app-simple-tiny>
+

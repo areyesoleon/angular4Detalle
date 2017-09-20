@@ -1,0 +1,9 @@
+<div *ngIf="animals">
+  <div class="card">
+    <img class="card-img-top" src="{{url+'get-image-animal/'+animals.image}}" alt="Card image cap">
+    <div class="card-body">
+        <h4 class="card-title">{{animals.name}}</h4>
+        <p class="card-text">{{animals.description}}</p>
+    </div>
+  </div>
+</div>

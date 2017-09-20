@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <ul class="nav ">
+    <li class="nav-item">
+      <a [routerLink]="['/inicio']" class="navbar-brand" href="">{{title}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/inicio']" [routerLinkActive]="['active']">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/animales']" [routerLinkActive]="['active']">Animales</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/cuidadores']" [routerLinkActive]="['active']">Cuidadores</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/tienda']" [routerLinkActive]="['active']">Tienda</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/contacto']" [routerLinkActive]="['active']">Contacto</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="!identity" class="nav-link" [routerLink]="['/registro']">Registro</a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="!identity" class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
+    </li>
+    <li *ngIf="identity" class="nav-item">
+      <img class="nav-link rounded-circle img-fluid" src="{{url + 'get-image-file/'+identity.image}}" width="60px">
+    </li>
+    <li *ngIf="identity" class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{identity.name}}</a>
+      <div class="dropdown-menu">
+        <a [routerLink]="['/admin-panel']" class="dropdown-item" href="#">Administracion</a>
+        <a [routerLink]="['/mis-datos']" class="dropdown-item" href="#">Mis datos</a>
+        <a class="dropdown-item" href="#" (click)="logout()">Salir</a>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="container mt-5">
+  <router-outlet></router-outlet>
+</div>
